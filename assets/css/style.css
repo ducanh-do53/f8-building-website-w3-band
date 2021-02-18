@@ -1,0 +1,9 @@
+//Reset CSS
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  /*padding and border 
+    are included in the width and height*/
+    
+}

@@ -8,7 +8,7 @@
 }
 
 html {
-    font-family: Arial, Helvetica, sans-serif;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* 
@@ -36,31 +36,60 @@ Rules:
   background-color: black;
 }
 
-#nav {
+#nav,
+.subnav {
+  list-style-type: none;
 }
 
-#nav li {
+#nav > li {
   display: inline-block;
 }
 
-/* Đi theo cấp css từ cha đến con*/
-#nav li a {
-color: whitesmoke;
-text-decoration: none;
-line-height: 46px;
-padding: 0 24px;
-display:inline-block;
+#nav li {
+  position: relative;
+}
+/* Chỉ select các thẻ a trực tiếp nằm dươí thẻ li; cấp 1 */
+#nav > li > a {
+  color: rgb(255, 255, 255);
+  text-transform: uppercase;
 }
 
-#nav li:hover a {
-    background-color: rgb(255, 255, 255);
-    color:black;
+/* Đi theo cấp css từ cha đến con*/
+/* Select các thẻ con a ko nằm trực tiếp; cấp 2 và cấp 3 bị ảnh hưởng */
+#nav li a {
+  text-decoration: none;
+  line-height: 46px;
+  padding: 0 24px;
+  display: inline-block;
+  width: 100%;
+}
+
+#nav li:hover .subnav {
+  display: block;
+}
+
+#nav .subnav li:hover a,
+#nav > li:hover > a {
+  background-color: #ccc;
+  color: black;
 }
 
 /*Select css từ cấp cha trước*/
-
 #nav .subnav {
   display: none;
+  min-width: 160px;
+  top: 100%;
+  left: 0;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Thường chỉ select đến 3 thẻ tầng */
+#nav .subnav a {
+  color: black;
+  padding: 0 10px;
+  //line-height: 38px;
 }
 
 #slider {
